@@ -59,13 +59,50 @@ namespace Matrix
             c01 = a01 + b01;
             c10 = a10 + b10;
             c11 = a11 + b11;
-            Draw2x2Matrix(c00, c01, c10, c10);
+            Draw2x2Matrix(c00, c01, c10, c11);
 
             Console.WriteLine("");
 
             MatrixChecker.CheckAddition(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11); 
            
             Console.ReadKey();
+            //_____________________________________________________________
+
+            radians = 3.14f;
+            a00 = (float)Math.Cos(radians);
+            a01 = (float)Math.Sin(radians);
+            a10 = (float)Math.Sin(-radians);
+
+            Draw2x2Matrix(a00, a01, a10, a00);
+
+            Console.WriteLine("");
+
+            MatrixChecker.CheckRotationMatrix(radians, a00, a01, a10, a00);
+
+            //_____________________________________________________________
+
+
+            a00 = 1; a01 = 2; a10 = 3; a11 = 4; // Detta är för matrisen A
+            b00 = 5; b01 = 6; b10 = 7; b11 = 8; // Detta är för matrisen B
+
+            c00 = a00 * b00 + a01 * b10;
+            c01 = a00 * b01 + a01 * b11;
+            c10 = a10 * b00 + a11 * b10;
+            c11 = a10 * b01 + a11 * b11; 
+
+            Draw2x2Matrix(c00, c01, c10, c11);
+            Console.WriteLine("");
+            MatrixChecker.CheckMultiplication(a00, a01, a10, a11, b00, b01, b10, b11, c00, c01, c10, c11);
+            Console.ReadKey(); 
         }
+
+
     }
+
+
+    
+
+
+
 }
+
